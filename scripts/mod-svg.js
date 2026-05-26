@@ -6,20 +6,33 @@ const svgPath = path.join(__dirname, '../dist/github-snake-dark.svg');
 try {
   let svgContent = fs.readFileSync(svgPath, 'utf8');
 
-  // We are injecting a racing car emoji. 
-  // We use <g> tags to group it, and a slight translation to center it on the grid squares.
+  // The racecar we want to inject.
   const racecar = `<g transform="translate(-2, 2)"><text font-size="14">🏎️</text></g>`;
 
-  // Platane/snk usually renders the head as the very last <rect> or <path> with specific animation classes.
-  // This regex looks for the standard snake head rendering and replaces it.
-  svgContent = svgContent.replace(/<rect[^>]*class="[^"]*snake-head[^"]*"[^>]*><\/rect>/g, racecar);
+  // 1. Target the specific rect that makes up the head.
+  // Platane/snk animates the path using CSS keyframes targeting SVG classes.
+  // We need to inject our car inside the `<svg>` right after the main group `<g>`.
   
-  // Optional: Change the snake body color to look like dark asphalt/skid marks
+  // This looks for the end of the snake path group and appends the car to it.
+  // Note: Platane/snk draws the grid, then the snake. We want our car drawn *last* so it sits on top.
+  const injectionPoint = '</svg>';
+  
+  // We wrap the car in an animation group that mimics the snake's head movement.
+  // To keep this simple for the emoji, we are hijacking the last block of the snake.
+  svgContent = svgContent.replace(
+      /(<rect[^>]*class="[^"]*snake[^"]*"[^>]*><\/rect>)(?!.*<rect[^>]*class="[^"]*snake[^"]*"[^>]*><\/rect>)/, 
+      `$1 \n ${racecar}`
+  );
+
+  // 2. Make the original snake invisible (or look like skid marks)
+  // We change the standard bright green to a dark asphalt color.
   svgContent = svgContent.replace(/fill="#9be9a8"/g, 'fill="#333333"'); 
   svgContent = svgContent.replace(/fill="#40c463"/g, 'fill="#222222"');
+  svgContent = svgContent.replace(/fill="#30a14e"/g, 'fill="#111111"');
+  svgContent = svgContent.replace(/fill="#216e39"/g, 'fill="#000000"');
 
   fs.writeFileSync(svgPath, svgContent);
-  console.log("Racecar injected successfully!");
+  console.log("Racecar injected and snake painted black!");
 } catch (error) {
   console.error("Failed to inject racecar:", error);
   process.exit(1); 
