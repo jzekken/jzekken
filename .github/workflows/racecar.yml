@@ -23,10 +23,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-
+          
+      - name: Fix File Permissions
+        run: sudo chown -R $USER:$USER dist
+        
       - name: Inject Racecar
         run: node scripts/mod-svg.js
-
+      
       - name: Push to Output Branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
