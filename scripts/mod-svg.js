@@ -9,16 +9,8 @@ try {
   // The racecar we want to inject.
   const racecar = `<g transform="translate(-2, 2)"><text font-size="14">🏎️</text></g>`;
 
-  // 1. Target the specific rect that makes up the head.
-  // Platane/snk animates the path using CSS keyframes targeting SVG classes.
-  // We need to inject our car inside the `<svg>` right after the main group `<g>`.
-  
-  // This looks for the end of the snake path group and appends the car to it.
-  // Note: Platane/snk draws the grid, then the snake. We want our car drawn *last* so it sits on top.
-  const injectionPoint = '</svg>';
-  
-  // We wrap the car in an animation group that mimics the snake's head movement.
-  // To keep this simple for the emoji, we are hijacking the last block of the snake.
+  // 1. We wrap the car in an animation group that mimics the snake's head movement.
+  // Instead of trying to delete the head, we hijack the last block of the snake.
   svgContent = svgContent.replace(
       /(<rect[^>]*class="[^"]*snake[^"]*"[^>]*><\/rect>)(?!.*<rect[^>]*class="[^"]*snake[^"]*"[^>]*><\/rect>)/, 
       `$1 \n ${racecar}`
