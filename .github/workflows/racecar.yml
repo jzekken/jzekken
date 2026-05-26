@@ -2,8 +2,11 @@ name: Generate F1 Racecar Grid
 
 on:
   schedule:
-    - cron: "0 0 * * *" # Runs every midnight
-  workflow_dispatch: # Lets you run it manually
+    - cron: "0 0 * * *" 
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -12,24 +15,18 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
 
-      - name: Generate Base Snake
-        uses: Platane/snk@v3
+      # Using kdn251's fork which allows custom head images natively
+      - name: Generate Racecar Grid
+        uses: kdn251/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            dist/github-snake-dark.svg?palette=github-dark
+            dist/github-snake-dark.svg?palette=github-dark&color_snake=#333333&color_dots=#ebedf0,#9be9a8,#40c463,#30a14e,#216e39
+        env:
+          # This specifies the URL to an image you want to use as the head!
+          # For now, it's a standard racing flag emoji, but you can change this URL later.
+          SNAKE_HEAD_IMG: "https://raw.githubusercontent.com/twitter/twemoji/master/assets/svg/1f3ce.svg"
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-          
-      - name: Fix File Permissions
-        run: sudo chown -R $USER:$USER dist
-        
-      - name: Inject Racecar
-        run: node scripts/mod-svg.js
-      
       - name: Push to Output Branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
