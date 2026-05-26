@@ -1,29 +1,34 @@
 name: Generate F1 Contribution Graph
 
 on:
+  # Run automatically every day at midnight
   schedule:
-    - cron: "0 0 * * *" 
+    - cron: '0 0 * * *' 
+  
+  # Allow manual runs from the Actions tab
   workflow_dispatch:
+  
+  # Run whenever you push to the main branch
   push:
     branches:
       - main
 
 jobs:
-  build:
+  generate:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
+    timeout-minutes: 10
+    
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
-
       - name: Generate F1 Contribution Graph
+        # This points to your customized fork/repository
         uses: jzekken/f1-contribution-graph@main
         with:
           github_user_name: ${{ github.repository_owner }}
-
-      - name: Push to Output Branch
-        uses: crazy-max/ghaction-github-pages@v3.1.0
+          # The action defaults to 'pacman' which is where you put the F1 code!
+          games: 'pacman'
+          
+      - name: Push to output branch
+        uses: crazy-max/ghaction-github-pages@v3
         with:
           target_branch: output
           build_dir: dist
