@@ -25,6 +25,7 @@ jobs:
         with:
           github_user_name: ${{ github.repository_owner }}
           # The action defaults to 'pacman' which is where you put the F1 code!
+          github_token: ${{ secrets.F1_TOKEN }}
           games: 'pacman'
           
       - name: Push to output branch
