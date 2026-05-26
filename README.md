@@ -1,5 +1,8 @@
 ## Hi there 👋
-
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/jzekken/jzekken/output/github-snake-dark.svg">
+  <img alt="github contribution grid racecar" src="https://raw.githubusercontent.com/jzekken/jzekken/output/github-snake-dark.svg">
+</picture>
 <!--
 **jzekken/jzekken** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
