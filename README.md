@@ -1,8 +1,8 @@
 ## Hi there 👋
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/jzekken/f1-contribution-graph/output/pacman-contribution-graph-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/jzekken/f1-contribution-graph/output/pacman-contribution-graph.svg">
-  <img alt="F1 Contribution Graph" src="https://raw.githubusercontent.com/jzekken/f1-contribution-graph/output/pacman-contribution-graph.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/jzekken/jzekken/output/pacman-contribution-graph-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/jzekken/jzekken/output/pacman-contribution-graph.svg">
+  <img alt="F1 Contribution Graph" src="https://raw.githubusercontent.com/jzekken/jzekken/output/pacman-contribution-graph.svg">
 </picture>
 <!--
 **jzekken/jzekken** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
