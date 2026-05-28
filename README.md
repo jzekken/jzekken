@@ -82,3 +82,8 @@
 <img src="https://img.shields.io/badge/React-%2320232a.svg?style=flat&logo=react&logoColor=%2361DAFB" />
 
 <img src="assets/SRL-image-1.gif" width="100%" />
+
+<h2 align="center">Zach's Pitstop</h2>
+<div align="center">
+  <img alt="Steam Metrics" src="https://raw.githubusercontent.com/jzekken/jzekken/output/github-metrics-steam.svg">
+</div>
