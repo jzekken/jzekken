@@ -85,5 +85,5 @@
 
 <h2 align="center">Zach's Pitstop</h2>
 <div align="center">
-  <img alt="Steam Metrics" src="https://raw.githubusercontent.com/jzekken/jzekken/output/github-metrics-steam.svg">
+  <img alt="Steam Metrics" src="github-metrics-steam.svg">
 </div>
