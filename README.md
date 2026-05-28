@@ -1,4 +1,12 @@
-## Hi there 👋
+<h1 align="center">John Zachary N. Gillana</h1>
+<h3 align="center">Computer Engineering Student</h3>
+
+<div align="center">
+  <a href="https://git.io/typing-svg">
+    <img src="https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&pause=1000&color=FFA500&center=true&width=1000&lines=Simply+Lovely!;Full+Push,+No+Risk!" alt="Typing SVG" />
+  </a>
+
+  <br/> <br/>
 <img alt="F1 Contribution Graph" src="https://raw.githubusercontent.com/jzekken/jzekken/output/pacman-contribution-graph.svg">
 <!--
 **jzekken/jzekken** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
