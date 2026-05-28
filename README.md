@@ -1,5 +1,6 @@
+<img src="assets/c7490f9d8cba26dcd7fb34f08a211156e311d57ffd470edff68a92832d3a1fd8.gif" width="100%" />
 <img src="assets/SRL-image-1.gif" width="100%" />
-<img src="assets/tumblr_nynhfrJJWv1qzqwamo1_1280.gif="100%" />
+
 <h1 align="center">John Zachary N. Gillana</h1>
 <h3 align="center">Computer Engineering Student</h3>
 
